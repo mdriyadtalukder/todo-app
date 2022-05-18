@@ -1,0 +1,8 @@
+.add{
+    height: 56px;
+    width: 56px;
+    border-radius: 100%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
