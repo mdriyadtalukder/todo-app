@@ -1,26 +1,38 @@
 import React, { useEffect, useState } from 'react';
+import { Spinner } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Product from '../Product/Product';
 import './Home.css'
 const Home = () => {
     const [products, setProduct] = useState([]);
+    const [loading, setloading] = useState(true);
     useEffect(() => {
-        fetch('http://localhost:5000/products')
+       
+        fetch('https://peaceful-citadel-73337.herokuapp.com/products')
             .then(res => res.json())
-            .then(data => setProduct(data))
-    }, []);
+            .then(data => {
+                setProduct(data);
+                setloading(false);
+
+            })
+    }, [products]);
     const deleteItem = id => {
         const remaining = products.filter(item => item._id !== id);
         setProduct(remaining);
     }
+
     return (
-      
-           <div>
-               <h1 className='mt-4 text-center fw-bold'>TO DO APP</h1>
-                <table class="table w-75 mx-auto mt-4 shadow-lg mt-5">
+
+
+        <div>
+           {loading &&  <div className='d-flex justify-content-center align-items-center mt-5'>
+                <Spinner animation="border" variant="info" />
+            </div>} 
+            {!loading && <><h1 className='mt-4 text-center fw-bold'>TO DO APP</h1>
+            <table class="table container  mt-4 shadow-lg mt-5">
                 <thead>
                     <tr>
-                        <th  scope="col">Task Name</th>
+                        <th scope="col">Task Name</th>
                         <th className='text-center' scope="col">Task Description</th>
                         <th className='text-center' scope="col"> Task Action</th>
                     </tr>
@@ -32,9 +44,12 @@ const Home = () => {
                 </tbody>
             </table>
             <div className='text-center'>
-            <Link to='/add' className='btn btn-info add text-center fw-bold'>Add</Link>
+                <Link to='/add' className='btn btn-info add text-center fw-bold'>Add</Link>
             </div>
-           </div>
+            </> }
+            
+        </div>
+
 
     );
 };

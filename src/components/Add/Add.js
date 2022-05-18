@@ -22,7 +22,7 @@ const Add = () => {
 
         //add item with conditional statement
         if (name && description) {
-            fetch('http://localhost:5000/products', {
+            fetch('https://peaceful-citadel-73337.herokuapp.com/products', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
