@@ -28,7 +28,7 @@ const Home = () => {
            {loading &&  <div className='d-flex justify-content-center align-items-center mt-5'>
                 <Spinner animation="border" variant="info" />
             </div>} 
-            {!loading && <><h1 className='mt-4 text-center fw-bold'>TO DO APP</h1>
+            {!loading && <><h1 className='mt-4 text-center fw-bold text-info'>TO DO APP</h1>
             <table class="table container  mt-4 shadow-lg mt-5">
                 <thead>
                     <tr>
@@ -44,7 +44,7 @@ const Home = () => {
                 </tbody>
             </table>
             <div className='text-center'>
-                <Link to='/add' className='btn btn-info add text-center fw-bold'>Add</Link>
+                <Link to='/add' className='btn text-white btn-info add text-center fw-bold'>Add</Link>
             </div>
             </> }
             

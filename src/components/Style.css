@@ -1,0 +1,21 @@
+@media only screen and (max-width:688px) {
+
+
+    #logIn,
+    #signUp,
+    #additemform {
+        width: 90% !important;
+    }
+
+}
+
+/* for tablet */
+@media only screen and (min-width:688px) and (max-width:992px) {
+
+
+    #logIn,
+    #signUp,
+    #additemform {
+        width: 90% !important;
+    }
+}

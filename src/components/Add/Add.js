@@ -3,6 +3,7 @@ import { Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import '../Style.css'
 const Add = () => {
     const namevalue = useRef('');
     const descriptionvalue = useRef('');
@@ -43,8 +44,8 @@ const Add = () => {
     }
     return (
         <div>
-            <div className='mt-3 mb-3' style={{ minHeight: '90vh' }}>
-                <h1 className='text-center fw-bold'>Add New Task</h1>
+            <div className='mt-3 mb-3'>
+                <h1 className='text-center fw-bold text-info'>Add New Task</h1>
                 <Form id='additemform' onSubmit={addItem} className='w-50 mx-auto shadow-lg p-5 mt-3 mb-3'>
                     <Form.Group className="mb-3" controlId="formBasicName">
                         <Form.Label>Task Name</Form.Label>
@@ -55,11 +56,11 @@ const Add = () => {
                         <Form.Control ref={descriptionvalue} type="text" placeholder="Enter Description" />
                     </Form.Group>
 
-                    <button className='btn btn-info w-100'>Add Item</button>
+                    <button className=' text-white fw-bold btn btn-info w-100'>Add Item</button>
                 </Form>
                 <ToastContainer ></ToastContainer>
                 <div className="text-center">
-                <Link to='/' className='btn btn-info'>Go to Tasks</Link>
+                <Link to='/' className='btn text-white fw-bold btn-info'>Go to Tasks</Link>
             </div>
             </div>
         </div>
