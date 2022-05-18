@@ -39,7 +39,7 @@ const Home = () => {
                 </thead>
                 <tbody cl>
                     {
-                        products.map(product => <Product products={products} deleteItem={deleteItem} product={product}></Product>)
+                        products.map(product => <Product key={product._id} products={products} deleteItem={deleteItem} product={product}></Product>)
                     }
                 </tbody>
             </table>

@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 const Product = ({ product, deleteItem }) => {
     const { _id, name, description } = product;
-    const [strikee, setStrike] = useState(false);
+    let name2 = name.replace('<strike>', ' ');
+    let name3 = name2.replace('</strike>', ' ');
 
+    let description2 = description.replace('<strike>', ' ');
+    let description3 = description2.replace('</strike>', ' ');
     const deleteItems = id => {
 
         const proceed = window.confirm("Are you sure to delete this task?");
@@ -33,8 +36,8 @@ const Product = ({ product, deleteItem }) => {
         })
             .then(response => response.json())
             .then(data => {
+
                 toast("Complete successfully!!");
-                setStrike(true);
 
 
 
@@ -42,8 +45,8 @@ const Product = ({ product, deleteItem }) => {
     }
     return (
         <tr>
-            <th className={strikee && 'text-decoration-line-through'} scope="row">{name}</th>
-            <td className={strikee ? 'text-decoration-line-through text-center' : 'text-center'} >{description}</td>
+            <th className={name.includes('<strike>') && 'text-decoration-line-through'} scope="row">{name.includes('<strike>') ? name3 : name}</th>
+            <td className={description.includes('<strike>') ? 'text-decoration-line-through text-center' : 'text-center'} >{description.includes('<strike>') ? description3 : description}</td>
 
             <td className='text-center'>
                 <button onClick={updateTask} style={{ border: "2px solid green" }} className='bg-success text-white rounded'>Complete</button>
